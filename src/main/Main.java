@@ -34,7 +34,7 @@ public class Main {
 //		o1.ecrireUnFichier("C:\\Users\\remip\\Desktop\\fichier\\c.txt", reponse);
 //		System.out.println(reponse);
 		
-		System.out.println("Terminé");
+		System.out.println("TerminÃ©");
 		
 		
 
