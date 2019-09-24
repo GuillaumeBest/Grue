@@ -8,6 +8,7 @@ import contract.IView;
 public class View implements IView {
 	
 	private Window window;
+	private LoginWindow loginWindow;
 	
 	public View() {
 		try {
@@ -16,7 +17,7 @@ public class View implements IView {
 				| UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-		this.setWindow(new Window());
+		this.setLoginWindow(new LoginWindow());
 	}
 
 	public Window getWindow() {
@@ -25,5 +26,13 @@ public class View implements IView {
 
 	public void setWindow(Window window) {
 		this.window = window;
+	}
+
+	private LoginWindow getLoginWindow() {
+		return loginWindow;
+	}
+
+	private void setLoginWindow(LoginWindow loginWindow) {
+		this.loginWindow = loginWindow;
 	}
 }
