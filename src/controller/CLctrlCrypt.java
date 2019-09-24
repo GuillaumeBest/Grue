@@ -27,7 +27,7 @@ public class CLctrlCrypt {
 			fr = new FileReader(path);
 		    str = "";
 		    int i = 0;
-		    //Lecture des données
+		    //Lecture des donnï¿½es
 		    while((i = fr.read()) != -1)
 		      str += (char)i;
 
@@ -39,8 +39,34 @@ public class CLctrlCrypt {
 		return str;
 		
 	}
-	public String crypter(String texte, String Key) {
-		return Key;
-		
+	public String crypter(String inputString, String key) {
+		 // Define XOR key 
+        // Any character value will work 
+        String xorKey = key; 
+        // Define String to store encrypted/decrypted String 
+        String outputString = ""; 
+  
+        // calculate length of input string 
+        int len = inputString.length(); 
+        int keyIndex = 0;
+        // perform XOR operation of key 
+        // with every character in string 
+        
+        for (int i = 0; i < len; i++)  
+        { 
+            outputString = outputString +  
+            Character.toString((char) (inputString.charAt(i) ^ xorKey.charAt(keyIndex))); 
+            
+            keyIndex++;
+            
+            if (keyIndex >= xorKey.length()) {
+            	keyIndex = 0;
+            }
+        } 
+        return outputString; 
+	}
+	public String creeCle() {
+		String key = "";
+		return key;
 	}
 }
