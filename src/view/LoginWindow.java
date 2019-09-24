@@ -46,6 +46,5 @@ public class LoginWindow extends JFrame {
 	    login.add(top, BorderLayout.CENTER);
 	    this.setContentPane(login);
 	    this.setVisible(true); 
-		
 	}
 }
