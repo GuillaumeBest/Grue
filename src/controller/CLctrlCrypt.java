@@ -39,6 +39,41 @@ public class CLctrlCrypt {
 		return str;
 		
 	}
+	public void lireLigne(String path) {
+		FileReader fr;
+		String str = null;
+		char chr;
+		try {
+			fr = new FileReader(path);
+		    str = "";
+		    int i = 0;
+		    //Lecture des donn�es
+		    while((i = fr.read()) != -1) {
+		    	chr = (char)i;
+		    	if (i == 10) {
+		    		this.testerCle(str);
+		    		str = "";
+		    	}else {
+		    		str += (char)i;
+		    	}
+		      
+		    }
+		}catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	public void testerCle(String key) {
+		String reponse;
+		
+		
+		reponse = this.lireFichierSimple("b.txt");
+		reponse = this.crypter(reponse, key);
+		//appeler la fct de verification
+		//this.ecrireUnFichier(key + ".txt", reponse, false);
+		
+	}
 	public String crypter(String inputString, String key) {
 		 // Define XOR key 
         // Any character value will work 
@@ -81,7 +116,7 @@ public class CLctrlCrypt {
 	    // Base case: k is 0, print prefix 
 	    if (k == 0)  
 	    { 
-	        System.out.println(prefix);
+	        //System.out.println(prefix);
 	        prefix = prefix + "\n";
 	        objet.ecrireUnFichier("listeCle.txt", prefix, true); //appeler le service de cryptage et de comparaison
 	        return; 
