@@ -14,7 +14,7 @@ public class Main {
 	public static void main(String[] args) {
 //
 //		final IModel model = new Model();
-//		final IView view = new View();
+		final IView view = new View();
 //		final IController controler = new Controller(model, view);
 		
 		CLbdd bdd = new CLbdd();
