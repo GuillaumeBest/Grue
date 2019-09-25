@@ -8,7 +8,7 @@ public class CLbdd {
     public CLbdd(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/...","root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/","root", "");
             Statement stmt = con.createStatement();;
             ResultSet rs= stmt.executeQuery("");
             while(rs.next())
