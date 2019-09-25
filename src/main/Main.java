@@ -33,17 +33,17 @@ public class Main {
 	    
 		
 		
-		o1.ecrireUnFichier("a.txt", "Je renseigne mon nom, mon nom commercial (si j’en ai un), mon adresse professionnelle, mon numéro de téléphone, mon site internet (si j’en ai un), mon courriel et mon Siret.", false);
+		//o1.ecrireUnFichier("a.txt", "Je suis Niels", false);
 
 		reponse = o1.lireFichierSimple("a.txt");
 		System.out.println(reponse);
 
-		reponse = o1.crypter(reponse, "kec<qcqscsqcy");
+		reponse = o1.crypter(reponse, "zaz");
 		System.out.println(reponse);
 		o1.ecrireUnFichier("b.txt", reponse, false);
 
 		reponse = o1.lireFichierSimple("b.txt");
-		reponse = o1.crypter(reponse, "kec<qcqscsqcy");
+		reponse = o1.crypter(reponse, "zaz");
 		o1.ecrireUnFichier("c.txt", reponse, false);
 		System.out.println(reponse);
 
