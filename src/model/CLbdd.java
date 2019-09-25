@@ -21,8 +21,6 @@ public class CLbdd {
 
     }
 
-    ;
-
     //-------------------------------------------------------
     public String GetRows(String rq_sql, String resultSetName) {
         try {
