@@ -26,14 +26,14 @@ public class Main {
 		
 		o1 = new CLctrlCrypt();
 		
-	    System.out.println("First Test"); 
-	    char[] set1 = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}; 
-	    int nbrLettre = 1; 
-	    o1.printAllKLength(set1, nbrLettre);
+//	    System.out.println("First Test"); 
+//	    char[] set1 = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}; 
+//	    int nbrLettre = 1; 
+//	    o1.printAllKLength(set1, nbrLettre);
 	    
-		/*
 		
-		o1.ecrireUnFichier("C:\\Users\\remip\\Desktop\\fichier\\a.txt", "Bonjdzczcdzdczdecss.", false);
+		
+		o1.ecrireUnFichier("a.txt", "Je renseigne mon nom, mon nom commercial (si j’en ai un), mon adresse professionnelle, mon numéro de téléphone, mon site internet (si j’en ai un), mon courriel et mon Siret.", false);
 
 		reponse = o1.lireFichierSimple("a.txt");
 		System.out.println(reponse);
@@ -42,12 +42,12 @@ public class Main {
 		System.out.println(reponse);
 		o1.ecrireUnFichier("b.txt", reponse, false);
 
-		reponse = o1.lireFichierSimple("C:\\Users\\remip\\Desktop\\fichier\\b.txt");
+		reponse = o1.lireFichierSimple("b.txt");
 		reponse = o1.crypter(reponse, "kec<qcqscsqcy");
 		o1.ecrireUnFichier("c.txt", reponse, false);
 		System.out.println(reponse);
 
-		System.out.println("Terminé");*/
+		System.out.println("Terminé");
 
 
 //
