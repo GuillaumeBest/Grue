@@ -1,22 +1,50 @@
 package model;
 
+
 import java.sql.*;
+
 
 
 public class CLbdd {
 
-    public CLbdd(){
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/...","root", "");
-            Statement stmt = con.createStatement();;
-            ResultSet rs= stmt.executeQuery("");
-            while(rs.next())
-                System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
-            con.close();
-        } catch (Exception e) { System.out.println(e); }
+    private Connection con;
+    private Statement stmt;
+    private ResultSet rs;
+
+    public CLbdd() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            this.con = DriverManager.getConnection("jdbc:mysql://localhost/grue?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
 
     }
 
+    //-------------------------------------------------------
+    public String GetRows(String rq_sql, String resultSetName) {
+        String result="";
+        try {
+            this.stmt = con.createStatement();
+            this.rs = stmt.executeQuery(rq_sql);
+             result= this.rs.getString(2)+" "+this.rs.getString(3);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return(result);
+    }
 
+    ;
+
+    //-------------------------------------------------------
+    public void ActionRows(String rq_sql) {
+        try {
+            this.stmt = con.createStatement();
+            this.stmt.executeUpdate(rq_sql);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    ;
 }
