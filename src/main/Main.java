@@ -35,7 +35,7 @@ public class Main {
 		
 		//o1.ecrireUnFichier("a.txt", "Je suis Niels", false);
 
-		reponse = o1.lireFichierSimple("a.txt");
+		reponse = o1.lireFichierSimple("a.txt", 1000);
 		System.out.println(reponse);
 
 		reponse = o1.crypter(reponse, "za");
@@ -44,7 +44,7 @@ public class Main {
 		
 		o1.lireLigne("listeCle.txt");
 		
-		reponse = o1.lireFichierSimple("b.txt");
+		reponse = o1.lireFichierSimple("b.txt", 1000);
 		reponse = o1.crypter(reponse, "za");
 		o1.ecrireUnFichier("c.txt", reponse, false);
 		//System.out.println(reponse);
