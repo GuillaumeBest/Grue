@@ -4,8 +4,7 @@ public class StringCutter {
 	
 public String[] cutString(String CuttedString) {	
 	
-	String s = "This is a sample sentence.";
-	String[] words = s.split("\\s+");
+	String[] words = CuttedString.split("\\s+");
 	for (int i = 0; i < words.length; i++) {
 	    // You may want to check for a non-word character before blindly
 	    // performing a replacement

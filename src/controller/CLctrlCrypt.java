@@ -9,36 +9,58 @@ import java.io.PrintWriter;
 
 import model.CLcrypt;
 import model.CLfichier;
+import model.Map_Dic;
+import model.StringCutter;
 
 public class CLctrlCrypt {
 	public boolean pcs_decrypter(String source_path, String destination_path) {
+		System.out.println("ok");
 		CLfichier oFichier;
 		oFichier = new CLfichier();
 		CLcrypt oCrypt;
 		oCrypt = new CLcrypt();
+		StringCutter sc;
+		sc = new StringCutter();
+		
+		String[] tbStr;
 		String strAdecrypt;
 		String strDecrypt;
+		int scoreCle;
+		float scoreFinalCle;
+		int nbrMot;
 		FileReader fr;
 		String str;
 		char chr;
 		boolean reponse = false;
 		
-		this.pcs_genererCle(8); //genere la liste des clés
-		strAdecrypt = oFichier.getData(source_path, 12);
+		this.pcs_genererCle(2); //genere la liste des clés
+		strAdecrypt = oFichier.getData(source_path, 20);
 		try {
 			fr = new FileReader("listeCle.txt");
 		    str = "";
 		    int i = 0;
 		    //Boucle pour chaque clé
 		    while((i = fr.read()) != -1) {
+		    	scoreCle = 0;
 		    	chr = (char)i;
 		    	if (i == 10) {
 		    		strDecrypt = oCrypt.decrypt(strAdecrypt, str);
-//		    		if(strDecrypt.comparaison(strDecrypt)) {
-//		    			oFichier.setData("listeCleRetenu.txt", str, true);// on enregistre la clé dans une liste
-//		    			oFichier.setData(str + ".txt", strDecrypt, false); // On ecrit le resultat du decryptage dans un fochier au nom de la clé
-//		    			reponse = true;
-//		    		}
+		    		tbStr = sc.cutString(strDecrypt);
+		    		nbrMot = tbStr.length;
+		    		System.out.println("nbr mot : "+nbrMot);
+		    		for(String strMot : tbStr) {
+			    		if(Map_Dic.getInstance().selectWord(strMot) == 1) {
+			    			scoreCle ++;
+		    			}		    		
+		    		}
+		    		scoreFinalCle = nbrMot/scoreCle;
+		    		System.out.println("Score Final : " + scoreFinalCle);
+		    		if (scoreFinalCle > 0.8) {
+		    			oFichier.setData("listeCleRetenu.txt", str, true);// on enregistre la clé dans une liste
+		    			oFichier.setData(str + ".txt", strDecrypt, false); // On ecrit le resultat du decryptage dans un fochier au nom de la clé
+		    			reponse = true;
+		    		}
+
 		    		str = "";
 		    	}else {
 		    		str += (char)i;

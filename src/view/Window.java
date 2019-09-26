@@ -52,9 +52,7 @@ public class Window extends JFrame implements ActionListener {
 		if (file.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) // Affiche le dialogue et v�rifie le
 																		// fonctionnement du bouton
 			try {
-
 				String absolute = file.getSelectedFile().getAbsolutePath();
-				System.out.print(absolute);
 				o1.pcs_decrypter(absolute, destination_path);
 				Desktop.getDesktop().open(file.getSelectedFile());
 			} catch (IOException e) {
