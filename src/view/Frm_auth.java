@@ -1,6 +1,9 @@
 package view;
 
 import javax.swing.JTextField;
+
+import controller.Observer;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,6 +16,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Frm_auth extends JFrame implements ActionListener {
 	
@@ -23,9 +27,10 @@ public class Frm_auth extends JFrame implements ActionListener {
 	private JLabel MDP = new JLabel("Mot de passe :");
 	private JTextField jtf2 = new JTextField("");
 	private JButton boutonLog = new JButton("Connexion");
+	private ArrayList<Observer>observers = new ArrayList<>();
 	public String logID;
 	public String logMDP;
-	public Boolean connecte = true;
+	public boolean passerSecu = true;
 	
 	public Frm_auth (){
 		
@@ -69,12 +74,20 @@ public class Frm_auth extends JFrame implements ActionListener {
 			
 			  logID = jtf.getText();
 		  	  logMDP = jtf2.getText();
-		  	  System.out.println(logID +" "+logMDP);
+		  	  updateAllObservers();
 		  	  
-		  	  if(connecte= true) {
-		  		  Window Window = new Window();
-		  		  this.dispose();
-		  	  }
-		  	  
+		  	//  if(passerSecu = true){
+		  	//	  Window window = new Window();
+		  	//  }
+	}
+	
+	public void addObserver(Observer observer) {
+		observers.add(observer);
+	}
+	
+	private void updateAllObservers() {
+		for(Observer observer: observers ) {
+			observer.update(new String[] {logID,logMDP});
+		}
 	}
 }
