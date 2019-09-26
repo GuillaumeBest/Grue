@@ -87,12 +87,17 @@ public class CLctrlCrypt {
 				scoreCle ++;
 			}
 		}
-		scoreFinalCle = nbrMot/scoreCle;
-		System.out.println("Score Final : " + scoreFinalCle);
-		if (scoreFinalCle > 0.8) {
-			oFichier.setData("listeCleRetenu.txt", cle, true);// on enregistre la clé dans une liste
-			oFichier.setData(cle + ".txt", strDecrypt, false); // On ecrit le resultat du decryptage dans un fochier au nom de la clé
-			reponse = true;
+		if(scoreCle !=0) {
+			scoreFinalCle = nbrMot / scoreCle;
+			System.out.println("Score Final : " + scoreFinalCle);
+			if (scoreFinalCle > 0.8) {
+				oFichier.setData("listeCleRetenu.txt", cle, true);// on enregistre la clé dans une liste
+				oFichier.setData(cle + ".txt", strDecrypt, false); // On ecrit le resultat du decryptage dans un fochier au nom de la clé
+				reponse = true;
+			}
+		}
+		else{
+			System.out.println("mauvaise clé");
 		}
 	}
 	
