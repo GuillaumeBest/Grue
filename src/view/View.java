@@ -6,10 +6,10 @@ import javax.swing.UnsupportedLookAndFeelException;
 import contract.IView;
 
 public class View implements IView {
-	
+
 	private Window window;
 	private LoginWindow loginWindow;
-	
+
 	public View() {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
