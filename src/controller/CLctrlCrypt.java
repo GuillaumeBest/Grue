@@ -67,7 +67,6 @@ public class CLctrlCrypt {
 	public void testerCle(String key) {
 		String reponse;
 		
-		
 		reponse = this.lireFichierSimple("b.txt");
 		reponse = this.crypter(reponse, key);
 		//appeler la fct de verification
