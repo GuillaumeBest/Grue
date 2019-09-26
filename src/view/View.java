@@ -8,7 +8,7 @@ import contract.IView;
 public class View implements IView {
 
 	private Window window;
-	private LoginWindow loginWindow;
+	private Frm_auth loginWindow;
 
 	public View() {
 		try {
@@ -17,7 +17,7 @@ public class View implements IView {
 				| UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-		this.setLoginWindow(new LoginWindow());
+		this.setLoginWindow(new Frm_auth());
 	}
 
 	public Window getWindow() {
@@ -28,11 +28,11 @@ public class View implements IView {
 		this.window = window;
 	}
 
-	private LoginWindow getLoginWindow() {
+	private Frm_auth getLoginWindow() {
 		return loginWindow;
 	}
 
-	private void setLoginWindow(LoginWindow loginWindow) {
+	private void setLoginWindow(Frm_auth loginWindow) {
 		this.loginWindow = loginWindow;
 	}
 }

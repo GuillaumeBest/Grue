@@ -14,7 +14,7 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoginWindow extends JFrame implements ActionListener {
+public class Frm_auth extends JFrame implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel login = new JPanel();
@@ -27,7 +27,7 @@ public class LoginWindow extends JFrame implements ActionListener {
 	public String logMDP;
 	public Boolean connecte = true;
 	
-	public LoginWindow (){
+	public Frm_auth (){
 		
 		// paramètres de la page qui connexion.
 		this.setTitle("Connexion");
