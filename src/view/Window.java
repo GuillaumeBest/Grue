@@ -45,15 +45,17 @@ public class Window extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		JFileChooser file = new JFileChooser();
+		String destination_path = "resultat/";
 		CLctrlCrypt o1;
+		
 		o1 = new CLctrlCrypt();
-		if (file.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) // Affiche le dialogue et vérifie le
+		if (file.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) // Affiche le dialogue et vï¿½rifie le
 																		// fonctionnement du bouton
 			try {
 
 				String absolute = file.getSelectedFile().getAbsolutePath();
 				System.out.print(absolute);
-				o1.decrypteFichier(absolute);
+				o1.pcs_decrypter(absolute, destination_path);
 				Desktop.getDesktop().open(file.getSelectedFile());
 			} catch (IOException e) {
 				e.printStackTrace();

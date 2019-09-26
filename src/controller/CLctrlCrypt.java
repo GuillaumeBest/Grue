@@ -7,26 +7,38 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import model.CLcrypt;
+import model.CLfichier;
+
 public class CLctrlCrypt {
-	public String pcs_decrypter(String source_path, String destination_path) {
-		
-	}
-	
-	public void lireLigne(String path) {
+	public boolean pcs_decrypter(String source_path, String destination_path) {
+		CLfichier oFichier;
+		oFichier = new CLfichier();
+		CLcrypt oCrypt;
+		oCrypt = new CLcrypt();
+		String strAdecrypt;
+		String strDecrypt;
 		FileReader fr;
-		String str = null;
+		String str;
 		char chr;
-		String reponse;
-		reponse = this.lireFichierSimple("b.txt", 12); //lit les 12 premiers cara du fichier crypter
+		boolean reponse = false;
+		
+		this.pcs_genererCle(8); //genere la liste des clés
+		strAdecrypt = oFichier.getData(source_path, 12);
 		try {
-			fr = new FileReader(path);
+			fr = new FileReader("listeCle.txt");
 		    str = "";
 		    int i = 0;
-		    //Lecture des donn�es
+		    //Boucle pour chaque clé
 		    while((i = fr.read()) != -1) {
 		    	chr = (char)i;
 		    	if (i == 10) {
-		    		this.testerCle(str, reponse);
+		    		strDecrypt = oCrypt.decrypt(strAdecrypt, str);
+//		    		if(strDecrypt.comparaison(strDecrypt)) {
+//		    			oFichier.setData("listeCleRetenu.txt", str, true);// on enregistre la clé dans une liste
+//		    			oFichier.setData(str + ".txt", strDecrypt, false); // On ecrit le resultat du decryptage dans un fochier au nom de la clé
+//		    			reponse = true;
+//		    		}
 		    		str = "";
 		    	}else {
 		    		str += (char)i;
@@ -37,18 +49,14 @@ public class CLctrlCrypt {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	}
-	public void testerCle(String key, String reponse) {
-		
-		reponse = this.crypter(reponse, key);
-		//appeler la fct de verification
-		//this.ecrireUnFichier(key + ".txt", reponse, false);
-		
+		return reponse;
 	}
 
-
-	
+	public void pcs_genererCle( int nbrLettre)
+	{
+	    char[] set1 = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}; 
+	    this.printAllKLength(set1, nbrLettre);
+	}
 	// The method that prints all possible strings of length k. 
 	public void printAllKLength(char[] set, int k) 
 	{ 
@@ -58,14 +66,14 @@ public class CLctrlCrypt {
 	  
 	// The main recursive method to print all possible strings of length k 
 	static void printAllKLengthRec(char[] set, String prefix, int n, int k) {   
-		CLctrlCrypt objet;
-		objet = new CLctrlCrypt();
+		CLfichier oFichier;
+		oFichier = new CLfichier();
 	    // Base case: k is 0, print prefix 
 	    if (k == 0)  
 	    { 
 	        //System.out.println(prefix);
-	        prefix = prefix + "\n";
-	        objet.ecrireUnFichier("listeCle.txt", prefix, true); //appeler le service de cryptage et de comparaison
+	        prefix = "awqb" + prefix + "\n";
+	        oFichier.setData("listeCle.txt", prefix, true); //appeler le service de cryptage et de comparaison
 	        return; 
 	    } 
 	    // One by one add all characters from set and recursively call for k equals to k-1 
