@@ -14,6 +14,6 @@ public class Map_Dic {
 
 
     public int selectWord(String word){
-        return(CAD.getInstance().GetRows( "SELECT Mots FROM disctionnaire WHERE Mots=\""+word+"\"", 0));
+        return(CAD.getInstance().GetRows( "SELECT Mot FROM dictionnaire WHERE Mot=\""+word+"\"", 0));
     }
 }
