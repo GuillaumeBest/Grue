@@ -20,6 +20,10 @@ public class CLctrlCrypt {
 	    
 
 	}
+	public String decrypteFichier(String path) {
+		return path;
+		
+	}
 	public String lireFichierSimple(String path, int lgLecture) {
 		FileReader fr;
 		String str = null;

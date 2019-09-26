@@ -9,6 +9,9 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
+
+import controller.CLctrlCrypt;
+
 import javax.swing.JFrame;
 
 public class Window extends JFrame implements ActionListener {
@@ -40,14 +43,15 @@ public class Window extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		JFileChooser file = new JFileChooser();
-
+		CLctrlCrypt o1;
+		o1 = new CLctrlCrypt();
 		if (file.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) // Affiche le dialogue et vérifie le
 																		// fonctionnement du bouton
 			try {
 
 				String absolute = file.getSelectedFile().getAbsolutePath();
 				System.out.print(absolute);
-
+				o1.decrypteFichier(absolute);
 				Desktop.getDesktop().open(file.getSelectedFile());
 			} catch (IOException e) {
 				e.printStackTrace();
