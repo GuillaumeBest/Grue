@@ -1,12 +1,6 @@
 package main;
 
-import contract.IController;
-import contract.IModel;
 import contract.IView;
-import controller.CLctrlCrypt;
-import controller.Controller;
-import model.CLbdd;
-import model.Model;
 import view.View;
 
 public class Main {
