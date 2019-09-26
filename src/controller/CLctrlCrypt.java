@@ -83,21 +83,24 @@ public class CLctrlCrypt {
 		nbrMot = tbStr.length;
 		System.out.println("nbr mot : "+nbrMot);
 		for(String strMot : tbStr) {
+			System.out.println(strMot);
 			if(Map_Dic.getInstance().selectWord(strMot) == strMot) {
 				scoreCle ++;
 			}
 		}
 		if(scoreCle !=0) {
+
 			scoreFinalCle = nbrMot / scoreCle;
 			System.out.println("Score Final : " + scoreFinalCle);
-			if (scoreFinalCle > 0.8) {
+			if (scoreFinalCle > 0.1) {
 				oFichier.setData("listeCleRetenu.txt", cle, true);// on enregistre la clé dans une liste
 				oFichier.setData(cle + ".txt", strDecrypt, false); // On ecrit le resultat du decryptage dans un fochier au nom de la clé
 				reponse = true;
 			}
 		}
 		else{
-			System.out.println("mauvaise clé");
+			System.out.println("mauvaise clé"+ cle
+					+ scoreCle);
 		}
 	}
 	
