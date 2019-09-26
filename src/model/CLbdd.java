@@ -23,14 +23,15 @@ public class CLbdd {
 
     //-------------------------------------------------------
     public String GetRows(String rq_sql, String resultSetName) {
+        String result="";
         try {
             this.stmt = con.createStatement();
             this.rs = stmt.executeQuery(rq_sql);
-            return (this.rs.getRow());
+             result= this.rs.getString(2)+" "+this.rs.getString(3);
         } catch (Exception e) {
             System.out.println(e);
         }
-
+        return(result);
     }
 
     ;
