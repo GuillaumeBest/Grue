@@ -20,7 +20,7 @@ public class CLctrlCrypt {
 	    
 
 	}
-	public String lireFichierSimple(String path) {
+	public String lireFichierSimple(String path, int lgLecture) {
 		FileReader fr;
 		String str = null;
 		try {
@@ -28,9 +28,9 @@ public class CLctrlCrypt {
 		    str = "";
 		    int i = 0;
 		    //Lecture des donn�es
-		    while((i = fr.read()) != -1)
+		    while((i = fr.read()) != -1 && str.length() <= lgLecture)
 		      str += (char)i;
-
+		   
 		}catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -43,6 +43,8 @@ public class CLctrlCrypt {
 		FileReader fr;
 		String str = null;
 		char chr;
+		String reponse;
+		reponse = this.lireFichierSimple("b.txt", 12); //lit les 12 premiers cara du fichier crypter
 		try {
 			fr = new FileReader(path);
 		    str = "";
@@ -51,7 +53,7 @@ public class CLctrlCrypt {
 		    while((i = fr.read()) != -1) {
 		    	chr = (char)i;
 		    	if (i == 10) {
-		    		this.testerCle(str);
+		    		this.testerCle(str, reponse);
 		    		str = "";
 		    	}else {
 		    		str += (char)i;
@@ -64,10 +66,8 @@ public class CLctrlCrypt {
 		}
 		
 	}
-	public void testerCle(String key) {
-		String reponse;
+	public void testerCle(String key, String reponse) {
 		
-		reponse = this.lireFichierSimple("b.txt");
 		reponse = this.crypter(reponse, key);
 		//appeler la fct de verification
 		//this.ecrireUnFichier(key + ".txt", reponse, false);
