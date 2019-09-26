@@ -24,19 +24,21 @@ public class Window extends JFrame implements ActionListener {
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setVisible(true);
+		
 
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
 
 		this.setContentPane(panel);
 
-		JButton button = new JButton("Open file"); // Initialisation du bouton qui va ouvrir le selectionneur de fichier
+		JButton button = new JButton("Choisir un fichier à décrypter"); // Initialisation du bouton qui va ouvrir le selectionneur de fichier
 		button.addActionListener(this); //Mise en place du bouton qui prend en charge l'action de cliquer
 
-		JPanel p = new JPanel(); //Mise en place du bouton sur la fen�tre
+		JPanel p = new JPanel(); //Mise en place du bouton sur la fen�tre
 		panel.add(button);
-		setContentPane(p);
+		
+		//setContentPane(p);
+		this.setVisible(true);
 	}
 
 	@Override
