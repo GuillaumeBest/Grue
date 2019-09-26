@@ -27,11 +27,13 @@ public class CAD {
     }
 
     //-------------------------------------------------------
-    public int GetRows(String rq_sql, int resultSetName) {
+    public String GetRows(String rq_sql, String resultSetName) {
         try {
             this.stmt = con.createStatement();
             this.rs = stmt.executeQuery(rq_sql);
-            resultSetName= this.rs.getRow();
+            while(rs.next()){
+                resultSetName= this.rs.getString(1);
+            }
         } catch (Exception e) {
             System.out.println(e);
         }

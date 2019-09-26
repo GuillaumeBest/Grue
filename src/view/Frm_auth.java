@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.JTextField;
 
+import contract.Observable;
 import controller.Observer;
 
 import javax.swing.JButton;
@@ -18,7 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class Frm_auth extends JFrame implements ActionListener {
+public class Frm_auth extends JFrame implements ActionListener, Observable {
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel login = new JPanel();
@@ -66,7 +67,7 @@ public class Frm_auth extends JFrame implements ActionListener {
 	    
 	    //affichage de la page
 	    this.setContentPane(login);
-	    this.setVisible(true); 
+		this.setVisible(true);
 	}
 	
 	public void actionPerformed(ActionEvent arg0) {
@@ -80,7 +81,7 @@ public class Frm_auth extends JFrame implements ActionListener {
 		  	//	  Window window = new Window();
 		  	//  }
 	}
-	
+	@Override
 	public void addObserver(Observer observer) {
 		observers.add(observer);
 	}

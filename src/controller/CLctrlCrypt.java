@@ -83,7 +83,7 @@ public class CLctrlCrypt {
 		nbrMot = tbStr.length;
 		System.out.println("nbr mot : "+nbrMot);
 		for(String strMot : tbStr) {
-			if(Map_Dic.getInstance().selectWord(strMot) == 1) {
+			if(Map_Dic.getInstance().selectWord(strMot) == strMot) {
 				scoreCle ++;
 			}
 		}

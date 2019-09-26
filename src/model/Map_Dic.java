@@ -13,7 +13,7 @@ public class Map_Dic {
     }
 
 
-    public int selectWord(String word){
-        return(CAD.getInstance().GetRows( "SELECT Mot FROM dictionnaire WHERE Mot=\""+word+"\"", 0));
+    public String selectWord(String word){
+        return(CAD.getInstance().GetRows( "SELECT Mot FROM dictionnaire WHERE Mot=\""+word+"\"", ""));
     }
 }

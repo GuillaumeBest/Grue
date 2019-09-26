@@ -28,7 +28,7 @@ public class View implements IView {
 		this.window = window;
 	}
 
-	private Frm_auth getLoginWindow() {
+	public Frm_auth getLoginWindow() {
 		return loginWindow;
 	}
 

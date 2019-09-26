@@ -13,8 +13,8 @@ public class Map_P {
     }
 
 
-    public int selectIDbyLoginPassword(String login, String password){
-        return(CAD.getInstance().GetRows( "SELECT Nom_De_Compte, password FROM identifiant WHERE Nom_De_Compte=\""+login+"\" AND Mot_De_Passe=\""+password+"\"", 0));
+    public String selectIDbyLoginPassword(String login, String password){
+        return(CAD.getInstance().GetRows( "SELECT id, Nom_De_Compte, Mots_De_Passe FROM identifiant WHERE Nom_De_Compte=\""+ login +"\"  AND Mots_De_Passe=\""+ password +"\" ;", ""));
     }
 }
 

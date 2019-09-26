@@ -13,6 +13,7 @@ public class Controller implements IController{
 		
 		this.model = model;
 		this.view = view;
+		this.view.getLoginWindow().addObserver(GestionCompte.getINSTANCE());
 	}
 	
 	public void loadDatas() {
