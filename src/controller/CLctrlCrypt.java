@@ -84,8 +84,11 @@ public class CLctrlCrypt {
 		nbrMot = tbStr.length;
 		System.out.println("nbr mot : "+nbrMot);
 		for(String strMot : tbStr) {
-			System.out.println(strMot);
-			if(Map_Dic.getInstance().selectWord(strMot) == strMot) {
+			System.out.println("Le mot trouvé: "+strMot);
+			System.out.println("Le mot trouvé dans le dico: "+Map_Dic.getInstance().selectWord(strMot));
+			String rq= Map_Dic.getInstance().selectWord(strMot);
+			if(rq.equals(strMot)) {
+				System.out.println("Salut");
 				scoreCle ++;
 			}
 		}
