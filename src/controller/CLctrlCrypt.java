@@ -84,18 +84,15 @@ public class CLctrlCrypt {
 		nbrMot = tbStr.length;
 		System.out.println("nbr mot : "+nbrMot);
 		for(String strMot : tbStr) {
-			System.out.println("Le mot trouvé: "+strMot);
-			System.out.println("Le mot trouvé dans le dico: "+Map_Dic.getInstance().selectWord(strMot));
 			String rq= Map_Dic.getInstance().selectWord(strMot);
 			if(rq.equals(strMot)) {
-				System.out.println("Salut");
 				scoreCle ++;
 			}
 		}
+		System.out.println(scoreCle);
 		if(scoreCle != 0) {
-
-			scoreFinalCle = scoreCle/nbrMot ;
-			System.out.println("Score Final : " + scoreFinalCle + cle);
+			scoreFinalCle = (float) scoreCle/nbrMot ;
+			System.out.println("Score Final : " + scoreFinalCle);
 			if (scoreFinalCle > 0.1) {
 				oFichier.setData("listeCleRetenu.txt", cle, true);// on enregistre la clé dans une liste
 				oFichier.setData(cle + ".txt", strDecrypt, false); // On ecrit le resultat du decryptage dans un fochier au nom de la clé
