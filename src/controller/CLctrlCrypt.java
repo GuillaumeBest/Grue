@@ -21,7 +21,7 @@ public class CLctrlCrypt {
 		oFichier = new CLfichier();
 		strAdecrypt = oFichier.getData(source_path, 24);
 
-		this.pcs_genererCle(2); //genere la liste des clés
+		this.pcs_genererCle(4); //genere la liste des clés
 
 	}
 
@@ -45,7 +45,7 @@ public class CLctrlCrypt {
 	    if (k == 0)  
 	    { 
 	        //System.out.println(prefix);
-	        //prefix = "awqb" + prefix + "\n";
+	        prefix = "awqpmndf" + prefix;
 	        this.testCle(prefix);
 	        //oFichier.setData("listeCle.txt", prefix, true); //appeler le service de cryptage et de comparaison
 	        return; 
@@ -79,23 +79,18 @@ public class CLctrlCrypt {
 		boolean reponse = false;
 
 		strDecrypt = oCrypt.decrypt(strAdecrypt, cle);
-		System.out.println("Decrypt  "+strAdecrypt + " cle " + cle);
 		tbStr = sc.cutString(strDecrypt);
 		nbrMot = tbStr.length;
-		System.out.println("nbr mot : "+nbrMot);
 		for(String strMot : tbStr) {
-			System.out.println("Le mot trouvé: "+strMot);
-			System.out.println("Le mot trouvé dans le dico: "+Map_Dic.getInstance().selectWord(strMot));
 			String rq= Map_Dic.getInstance().selectWord(strMot);
 			if(rq.equals(strMot)) {
-				System.out.println("Salut");
 				scoreCle ++;
 			}
 		}
+		System.out.println(scoreCle);
 		if(scoreCle != 0) {
-
-			scoreFinalCle = scoreCle/nbrMot ;
-			System.out.println("Score Final : " + scoreFinalCle + cle);
+			scoreFinalCle = (float) scoreCle/nbrMot ;
+			System.out.println("Score Final : " + scoreFinalCle);
 			if (scoreFinalCle > 0.1) {
 				oFichier.setData("listeCleRetenu.txt", cle, true);// on enregistre la clé dans une liste
 				oFichier.setData(cle + ".txt", strDecrypt, false); // On ecrit le resultat du decryptage dans un fochier au nom de la clé
