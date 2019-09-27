@@ -21,9 +21,9 @@ public class Main {
 		CLcrypt oCrypt =new CLcrypt();
 		CLfichier oFichier = new CLfichier();
 		String reponse;
-		
-		reponse = oCrypt.decrypt("Je suis une belle phrase", "bc");
-		oFichier.setData("Encrypt_zx.txt", reponse, false);
+//		
+//		reponse = oCrypt.decrypt("Je suis une belle phrase", "bc");
+//		oFichier.setData("Encrypt_zx.txt", reponse, false);
 		
 	}
 }
