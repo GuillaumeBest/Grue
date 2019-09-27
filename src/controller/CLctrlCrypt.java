@@ -19,9 +19,9 @@ public class CLctrlCrypt {
 
 		CLfichier oFichier;
 		oFichier = new CLfichier();
-		strAdecrypt = oFichier.getData(source_path, 24);
+		strAdecrypt = oFichier.getData(source_path, 100);
 
-		this.pcs_genererCle(4); //genere la liste des clés
+		this.pcs_genererCle(2); //genere la liste des clés
 
 	}
 
@@ -45,7 +45,7 @@ public class CLctrlCrypt {
 	    if (k == 0)  
 	    { 
 	        //System.out.println(prefix);
-	        prefix = "awqpmndf" + prefix;
+	        prefix = "awqpmndfgt" + prefix;
 	        this.testCle(prefix);
 	        //oFichier.setData("listeCle.txt", prefix, true); //appeler le service de cryptage et de comparaison
 	        return; 
@@ -91,7 +91,7 @@ public class CLctrlCrypt {
 		if(scoreCle != 0) {
 			scoreFinalCle = (float) scoreCle/nbrMot ;
 			System.out.println("Score Final : " + scoreFinalCle);
-			if (scoreFinalCle > 0.1) {
+			if (scoreFinalCle > 0.6) {
 				oFichier.setData("listeCleRetenu.txt", cle, true);// on enregistre la clé dans une liste
 				oFichier.setData(cle + ".txt", strDecrypt, false); // On ecrit le resultat du decryptage dans un fochier au nom de la clé
 				reponse = true;
