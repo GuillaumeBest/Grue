@@ -82,7 +82,7 @@ public class Frm_auth extends JFrame implements ActionListener, Observable {
 		  if(arg0.getSource() == boutonLog)
 			
 			  logID = jtf.getText();
-		  	  logMDP = jtf2.getPassword().toString();
+		  	  logMDP = new String(jtf2.getPassword());
 		  	  updateAllObservers();
 		  	  this.setVisible(false);
 		  	  this.repaint();

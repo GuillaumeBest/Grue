@@ -29,6 +29,7 @@ public class GestionCompte implements Observer {
 			}
 			else {
 				Frm_auth Frm_auth = new Frm_auth();
+				Frm_auth.addObserver(this);
 
 			}
 			
