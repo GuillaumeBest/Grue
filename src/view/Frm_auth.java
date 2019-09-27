@@ -26,7 +26,7 @@ public class Frm_auth extends JFrame implements ActionListener, Observable {
 	private static final long serialVersionUID = 1L;
 	private JPanel login = new JPanel();
 	private JTextField jtf = new JTextField("");
-	private JLabel label = new JLabel("Identifiant :");
+	private JLabel label = new JLabel("Identifiant :    ");
 	private JLabel MDP = new JLabel("Mot de passe :");
 	private JPasswordField jtf2 = new JPasswordField("");
 	private JButton boutonLog = new JButton("Connexion");
@@ -38,7 +38,7 @@ public class Frm_auth extends JFrame implements ActionListener, Observable {
 		
 		// paramètres de la page qui connexion.
 		this.setTitle("Connexion");
-		this.setSize(800, 600);
+		this.setSize(300, 300);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,12 +56,18 @@ public class Frm_auth extends JFrame implements ActionListener, Observable {
 	    
 	    //positionnement des composants
 	    JPanel top = new JPanel();
+	    JPanel cen = new JPanel();
+	    JPanel bas = new JPanel();
+	    
+	    
 	    top.add(label);
 	    top.add(jtf);
-	    top.add(MDP);
-	    top.add(jtf2);
-	    top.add(boutonLog);
-	    login.add(top, BorderLayout.CENTER);
+	    cen.add(MDP);
+	    cen.add(jtf2);
+	    bas.add(boutonLog);
+	    login.add(top, BorderLayout.PAGE_START);
+	    login.add(cen, BorderLayout.CENTER);
+	    login.add(bas, BorderLayout.PAGE_END);
 	    
 	    // action du bouton
 	    boutonLog.addActionListener(this);
