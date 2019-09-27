@@ -19,7 +19,7 @@ public class CAD {
     private CAD() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            this.con = DriverManager.getConnection("jdbc:mysql://localhost/grue?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+            this.con = DriverManager.getConnection("jdbc:mysql://localhost/grue?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "myhometendance", "Stage69MHT");
         } catch (Exception e) {
             System.out.println(e);
         }

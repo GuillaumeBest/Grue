@@ -53,8 +53,7 @@ public class Frm_auth extends JFrame implements ActionListener, Observable {
 	    jtf2.setFont(police);
 	    jtf2.setPreferredSize(new Dimension(150, 30));
 	    jtf2.setForeground(Color.BLACK);
-	    String logID ="";
-		String logMDP= "";
+
 	    
 	    //positionnement des composants
 	    JPanel top = new JPanel();

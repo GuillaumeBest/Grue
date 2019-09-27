@@ -46,7 +46,6 @@ public class CLctrlCrypt {
 	    { 
 	        //System.out.println(prefix);
 	        //prefix = "awqb" + prefix + "\n";
-			prefix = prefix + "\n";
 	        this.testCle(prefix);
 	        //oFichier.setData("listeCle.txt", prefix, true); //appeler le service de cryptage et de comparaison
 	        return; 
@@ -90,7 +89,7 @@ public class CLctrlCrypt {
 				scoreCle ++;
 			}
 		}
-		if(nbrMot !=0) {
+		if(scoreCle != 0) {
 
 			scoreFinalCle = scoreCle/nbrMot ;
 			System.out.println("Score Final : " + scoreFinalCle + cle);
@@ -101,8 +100,7 @@ public class CLctrlCrypt {
 			}
 		}
 		else{
-			System.out.println("mauvaise clé "+ cle
-					+ scoreCle);
+			System.out.println("mauvaise clé "+ cle);
 		}
 	}
 	
