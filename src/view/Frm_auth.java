@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -26,12 +28,11 @@ public class Frm_auth extends JFrame implements ActionListener, Observable {
 	private JTextField jtf = new JTextField("");
 	private JLabel label = new JLabel("Identifiant :");
 	private JLabel MDP = new JLabel("Mot de passe :");
-	private JTextField jtf2 = new JTextField("");
+	private JPasswordField jtf2 = new JPasswordField("");
 	private JButton boutonLog = new JButton("Connexion");
 	private ArrayList<Observer>observers = new ArrayList<>();
 	public String logID;
 	public String logMDP;
-	public boolean passerSecu = true;
 	
 	public Frm_auth (){
 		
@@ -76,10 +77,8 @@ public class Frm_auth extends JFrame implements ActionListener, Observable {
 			  logID = jtf.getText();
 		  	  logMDP = jtf2.getText();
 		  	  updateAllObservers();
-		  	  
-		  	//  if(passerSecu = true){
-		  	//	  Window window = new Window();
-		  	//  }
+		  	  this.setVisible(false);
+		  	  this.repaint();
 	}
 	@Override
 	public void addObserver(Observer observer) {
