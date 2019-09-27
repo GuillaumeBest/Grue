@@ -20,6 +20,7 @@ public class CLctrlCrypt {
 		CLfichier oFichier;
 		oFichier = new CLfichier();
 		strAdecrypt = oFichier.getData(source_path, 24);
+
 		this.pcs_genererCle(2); //genere la liste des clés
 
 	}
@@ -69,7 +70,7 @@ public class CLctrlCrypt {
 
 		String[] tbStr;
 
-		String strDecrypt;
+		String strDecrypt = "";
 		int scoreCle = 0;
 		float scoreFinalCle;
 		int nbrMot;
@@ -79,6 +80,7 @@ public class CLctrlCrypt {
 		boolean reponse = false;
 
 		strDecrypt = oCrypt.decrypt(strAdecrypt, cle);
+		System.out.println("Decrypt  "+strAdecrypt + " cle " + cle);
 		tbStr = sc.cutString(strDecrypt);
 		nbrMot = tbStr.length;
 		System.out.println("nbr mot : "+nbrMot);
@@ -88,10 +90,10 @@ public class CLctrlCrypt {
 				scoreCle ++;
 			}
 		}
-		if(scoreCle !=0) {
+		if(nbrMot !=0) {
 
-			scoreFinalCle = nbrMot / scoreCle;
-			System.out.println("Score Final : " + scoreFinalCle);
+			scoreFinalCle = scoreCle/nbrMot ;
+			System.out.println("Score Final : " + scoreFinalCle + cle);
 			if (scoreFinalCle > 0.1) {
 				oFichier.setData("listeCleRetenu.txt", cle, true);// on enregistre la clé dans une liste
 				oFichier.setData(cle + ".txt", strDecrypt, false); // On ecrit le resultat du decryptage dans un fochier au nom de la clé
@@ -99,7 +101,7 @@ public class CLctrlCrypt {
 			}
 		}
 		else{
-			System.out.println("mauvaise clé"+ cle
+			System.out.println("mauvaise clé "+ cle
 					+ scoreCle);
 		}
 	}
